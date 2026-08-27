@@ -1,0 +1,12 @@
+{
+    "population": 737,
+    "geography": "wetlands (ocean, river)",
+    "mobility_level": 5,
+    "resources": [
+        "papyrus",
+        "fish",
+        "dyes",
+        "silver"
+    ],
+    "explicitness": 4
+}

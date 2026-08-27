@@ -1,0 +1,74 @@
+{
+    "geographies": [
+        "forest",
+        "plains",
+        "desert/steppe",
+        "mountains/valley",
+        "wetlands (ocean, river)"
+    ],
+
+    "resources": {
+        "specific": {
+            "forest": [
+                "timber",
+                "furs",
+                "honey"
+            ],
+
+            "plains": [
+                "wheat",
+                "barley",
+                "oats",
+                "horses",
+                "cattle"
+            ],
+
+            "desert/steppe": [
+                "dates",
+                "ivory",
+                "camels"
+            ],
+
+            "mountains/valley": [
+                "stone",
+                "marble",
+                "limestone",
+                "goats"
+            ],
+
+            "wetlands (ocean, river)": [
+                "fish",
+                "rice",
+                "papyrus",
+                "clay"
+            ]
+        },
+
+        "general": [
+            "olives",
+            "grapes",
+            "salt",
+            "iron",
+            "copper",
+            "tin",
+            "lead",
+            "silver",
+            "gold",
+            "coal",
+            "charcoal",
+            "wool",
+            "leather",
+            "sheep",
+            "pigs",
+            "spices",
+            "herbs",
+            "dyes",
+            "silk",
+            "cotton"
+        ]
+    },
+
+    "quirks": {
+        "empty": "so far"
+    }
+}
