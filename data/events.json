@@ -3,11 +3,12 @@
         "conquest",
         "migration",
         "trade",
-        "popular_use"
+        "slang"
     ],
 
-    "splits": [
-        "isolation"
+    "split": [
+        "isolation",
+        "migration"
     ],
 
     "unification": [
@@ -17,6 +18,7 @@
     ],
 
     "other": [
-        "Prestige"
+        "prestige",
+        "plague"
     ]
 }

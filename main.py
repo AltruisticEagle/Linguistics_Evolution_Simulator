@@ -2,6 +2,13 @@ import random
 import json
 import time
 
+word_shift_modifier = 1
+word_addition_modifier = 1
+grammar_shift_modifier = 1
+word_shift_modifier = max(1, min(word_shift_modifier, 10))
+word_addition_modifier = max(1, min(word_addition_modifier, 10))
+grammar_shift_modifier = max(1, min(grammar_shift_modifier, 10))
+
 #loading some needed files
 with open("data/civilisation.json") as file:
     data = json.load(file)
@@ -17,6 +24,10 @@ class Civilisation():
         self.geography, self.mobility_level = set_geography()
         self.resources = get_resources(self.geography)
 
+        self.words = generate_words(self.resources)
+        self.grammar = generate_grammar()
+        self.sentences = None
+
         self.write_to_json()
 
     def write_to_json(self):
@@ -28,10 +39,10 @@ class Civilisation():
             "explicitness": self.explicitness
         }
 
-        with open("data/init_civ.json", "w") as file:
+        with open("data/civilisation_init.json", "w") as file:
             json.dump(civilisation_data, file, indent=4)
 
-    def display(self):
+    def display_init(self):
         print("\n--- CIVILISATION ---")
         print(f"Population: {self.population}")
         print(f"Geography: {self.geography}")
@@ -39,6 +50,39 @@ class Civilisation():
         print(f"Resources: {', '.join(self.resources)}")
         print(f"Cultural explicitness: {self.explicitness}/10")
 
+    def display(self, year):
+        print("\n--- CIVILISATION ---")
+        print(f"Population: {self.population}")
+
+        print("\nWORDS")
+        for word in self.words:
+            print(word)
+
+        print("\nGRAMMAR")
+        print(f"Word order: {self.words["word_order"]}")
+        print(f"Verb tenses: ", end="")
+        for tense in self.words["verb_tenses"]:
+            print(tense, end=" ")
+
+        print("\nEXAMPLES")
+        for sentence in self.sentences:
+            print(sentence)
+
+        print("\nCHANGES")
+        changes = get_changes(year)
+        for change in changes:
+            print(changes)
+
+    def iterate_population(self):
+        self.population += round(0.05 * self.population)
+
+    def iterate_event(self):
+        #change all the modifiers based on a randomly chosen event
+        ...
+
+    def iterate_words(self, word_shift_modifier, word_addition_modifier, grammar_shift_modifier):
+        #iterate through some words
+        ...
 
 
 def set_geography():
@@ -71,6 +115,12 @@ def get_resources(geography):
 
     return resources
 
+def generate_words(resources):
+    words = ...
+
+def generate_grammar():
+    ...
+
 
 
 def main():
@@ -79,13 +129,14 @@ def main():
     running = True
     year = 0
     while running:
+        print(f"\nYEAR {year}")
         if year == 0:
             for line in intro_lines:
                 print(line, end="")
                 time.sleep(3)
-
-        print(f"\nYEAR {year}")
-        print(civilisation.display())
+            civilisation.display_init()
+            
+        civilisation.display()
         time.sleep(5)
         break
 

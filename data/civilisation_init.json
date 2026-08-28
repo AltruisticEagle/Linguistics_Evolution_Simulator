@@ -1,0 +1,12 @@
+{
+    "population": 527,
+    "geography": "forest",
+    "mobility_level": 5,
+    "resources": [
+        "honey",
+        "timber",
+        "leather",
+        "grapes"
+    ],
+    "explicitness": 10
+}
