@@ -1,12 +1,13 @@
 {
-    "population": 527,
-    "geography": "forest",
-    "mobility_level": 5,
+    "population": 178,
+    "geography": "desert/steppe",
+    "mobility_level": 8,
     "resources": [
-        "honey",
-        "timber",
+        "camels",
+        "ivory",
+        "herbs",
         "leather",
-        "grapes"
+        "coal"
     ],
-    "explicitness": 10
+    "explicitness": 8
 }

@@ -1,24 +1,75 @@
-{
-    "more_words": [
-        "conquest",
-        "migration",
-        "trade",
-        "slang"
-    ],
+{ 
+    "events": [
+        {
+            "event": "Conquest - the conquerors have introduced new words.",
+            "word_shift_modifier": 3,
+            "word_addition_modifier": 0,
+            "grammar_shift_modifier": 0,
+            "population_shift_modifier": -0.02
+        },
 
-    "split": [
-        "isolation",
-        "migration"
-    ],
+        {
+            "event": "Slang - the youngsters, adding new vocabulary!",
+            "word_shift_modifier": 4,
+            "word_addition_modifier": 0,
+            "grammar_shift_modifier": 0,
+            "population_shift_modifier": 0
+        },
 
-    "unification": [
-        "writing",
-        "education",
-        "political_unification"
-    ],
+        {
+            "event": "Trade - traders from all across the region bring their words.",
+            "word_shift_modifier": 1,
+            "word_addition_modifier": 0,
+            "grammar_shift_modifier": 0,
+            "population_shift_modifier": 0.01
+        },
 
-    "other": [
-        "prestige",
-        "plague"
+        {
+            "event": "Migration - other tribes and peoples have brought their tongues with them.",
+            "word_shift_modifier": 2,
+            "word_addition_modifier": 0,
+            "grammar_shift_modifier": 0,
+            "population_shift_modifier": 0.1
+        },
+
+        {
+            "event": "Isolation - less people to talk with, less words get made up.",
+            "word_shift_modifier": -1,
+            "word_addition_modifier": 0,
+            "grammar_shift_modifier": 0,
+            "population_shift_modifier": 0
+        },
+
+        {
+            "event": "Writing - words being written down offer a spelling that is less modifiable.",
+            "word_shift_modifier": -1,
+            "word_addition_modifier": 0,
+            "grammar_shift_modifier": 0,
+            "population_shift_modifier": 0
+        },
+
+        {
+            "event": "Political Unification - the new regime is making efforts to unify the language.",
+            "word_shift_modifier": -2,
+            "word_addition_modifier": 0,
+            "grammar_shift_modifier": 0,
+            "population_shift_modifier": 0
+        },    
+        
+        {
+            "event": "Education - More people know how to read and write standard words, and they don't change as much.",
+            "word_shift_modifier": -4,
+            "word_addition_modifier": 0,
+            "grammar_shift_modifier": 0,
+            "population_shift_modifier": 0
+        },
+
+        {
+            "event": "Plague - People are dying in droves, and many words are dying off.",
+            "word_shift_modifier": -3,
+            "word_addition_modifier": 0,
+            "grammar_shift_modifier": 0,
+            "population_shift_modifier": -0.2
+        }
     ]
 }

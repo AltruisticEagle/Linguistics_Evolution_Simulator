@@ -1,0 +1,2 @@
+Year 3000 is where this simulation ends. Nowhere near a realistic timescale, but here we are.
+Hopefully you enjoyed this rudimentary demo! Perhaps consider trying it out again.

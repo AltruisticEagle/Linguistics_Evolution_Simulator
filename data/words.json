@@ -14,5 +14,31 @@
         "life",
         "day",
         "time"
+    ],
+
+    "antiquity": [
+        "slave",
+        "forum",
+        "gods",
+        "chief",
+        "tribe"
+    ],
+
+    "medieval": [
+        "merchant",
+        "castle",
+        "king",
+        "village",
+        "knight"
+    ],
+
+    "modern": [
+        "factory",
+        "machine",
+        "country",
+        "city",
+        "clock"
     ]
+
+
 }

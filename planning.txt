@@ -87,3 +87,6 @@ Those are perfect second-month additions. For tonight, the killer feature should
 I can create a civilization, watch several centuries pass, and visibly see its language mutate because of what happened to that civilization.
 
 That is a real prototype, not just scaffolding.
+
+
+Lets put sentences not yet
