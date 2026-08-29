@@ -1,1 +1,12 @@
-{}
+{
+    "population": 719,
+    "geography": "Wetlands (Ocean, River)",
+    "mobility_level": 6,
+    "resources": [
+        "Clay",
+        "Fish",
+        "Gold",
+        "Spices",
+        "Dyes"
+    ]
+}
