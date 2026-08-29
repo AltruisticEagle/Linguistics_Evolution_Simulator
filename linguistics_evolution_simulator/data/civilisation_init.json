@@ -1,12 +1,1 @@
-{
-    "population": 152,
-    "geography": "Plains",
-    "mobility_level": 8,
-    "resources": [
-        "Wheat",
-        "Oats",
-        "Silk",
-        "Olives",
-        "Lead"
-    ]
-}
+{}
