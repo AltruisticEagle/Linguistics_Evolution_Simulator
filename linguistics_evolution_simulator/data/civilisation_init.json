@@ -1,12 +1,12 @@
 {
-    "population": 559,
-    "geography": "Wetlands (Ocean, River)",
-    "mobility_level": 6,
+    "population": 417,
+    "geography": "Desert/Steppe",
+    "mobility_level": 7,
     "resources": [
-        "Rice",
-        "Fish",
-        "Silver",
-        "Cotton",
-        "Spices"
+        "Dates",
+        "Ivory",
+        "Coal",
+        "Herbs",
+        "Tin"
     ]
 }

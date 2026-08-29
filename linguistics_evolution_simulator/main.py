@@ -246,7 +246,7 @@ def main():
     civilisation = Civilisation()
 
     running = True
-    year = 800
+    year = 0
     while running:
         if year == 0:
             #for line in intro_lines:
@@ -263,7 +263,7 @@ def main():
         civilisation.iterate_population() # Changes civilisation population (mechanic related to some events)
         civilisation.iterate_words(year) # Changes the words in the dashboard
         civilisation.display(year) # Displays a dashboard
-        time.sleep(3) # 10 seconds for you to review the word changes in the dashboard
+        time.sleep(10) # 10 seconds for you to review the word changes in the dashboard
 
         if year == 3000:
             print("\n")
