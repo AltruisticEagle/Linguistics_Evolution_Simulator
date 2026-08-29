@@ -1,12 +1,12 @@
 {
-    "population": 417,
-    "geography": "Desert/Steppe",
-    "mobility_level": 7,
+    "population": 152,
+    "geography": "Plains",
+    "mobility_level": 8,
     "resources": [
-        "Dates",
-        "Ivory",
-        "Coal",
-        "Herbs",
-        "Tin"
+        "Wheat",
+        "Oats",
+        "Silk",
+        "Olives",
+        "Lead"
     ]
 }

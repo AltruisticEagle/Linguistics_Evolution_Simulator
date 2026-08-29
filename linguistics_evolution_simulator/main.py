@@ -23,7 +23,6 @@ with open(DATA_DIR / "intro.txt", "r") as file:
 with open(DATA_DIR / "outro.txt", "r") as file:
     outro_lines = file.readlines()
 
-#can we do it with a grammar function?
 
 
 class Civilisation():
@@ -159,8 +158,12 @@ class Civilisation():
             modified_words.append(change)
 
             count += 1
+
+
+            
 #----------------------------------------------------------------------------------------
         
+
 
 def set_geography():
     geography = random.choice(data["geographies"])
@@ -244,14 +247,14 @@ def mutate_word(word):
 
 def main():
     civilisation = Civilisation()
-
     running = True
     year = 0
+    
     while running:
         if year == 0:
-            #for line in intro_lines:
-                #print(line, end="")
-                #time.sleep(3)
+            for line in intro_lines:
+                print(line, end="")
+                time.sleep(3)
             print("\n")
             print(f"\nYEAR {year}")
             civilisation.display_init()
