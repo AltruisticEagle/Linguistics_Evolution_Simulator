@@ -2,22 +2,25 @@ import random
 import json
 import time
 
+from pathlib import Path
+DATA_DIR = Path(__file__).parent / "data"
+
 word_shift_modifier = 0 # number of words that are shifted per iteration
 vowels = str()
 consonants = str()
 modified_words = list()
 
 #loading some needed files
-with open("data/civilisation.json") as file:
+with open(DATA_DIR / "civilisation.json") as file:
     data = json.load(file) #loading all potential environment data
-with open("data/words.json") as file:
+with open(DATA_DIR / "words.json") as file:
     word_pool = json.load(file)
-with open("data/events.json") as file:
+with open(DATA_DIR / "events.json") as file:
     all_events = json.load(file)
 
-with open("data/intro.txt", "r") as file:
+with open(DATA_DIR / "intro.txt", "r") as file:
     intro_lines = file.readlines()
-with open("data/outro.txt", "r") as file:
+with open(DATA_DIR / "outro.txt", "r") as file:
     outro_lines = file.readlines()
 
 #can we do it with a grammar function?
@@ -42,7 +45,7 @@ class Civilisation():
             "resources": self.resources,
         }
 
-        with open("data/civilisation_init.json", "w") as file:
+        with open(DATA_DIR / "civilisation_init.json", "w") as file:
             json.dump(civilisation_data, file, indent=4)
 
     def display_init(self):

@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "linguistics-evolution-simulator"
+version = "0.1.0"
+description = "A small civilisation and language evolution simulator."
+readme = "readme.md"
+requires-python = ">=3.10"
+
+[project.scripts]
+linguistics-sim = "linguistics_evolution_simulator.main:main"
+
+[tool.setuptools.package-data]
+linguistics_evolution_simulator = ["data/*.json", "data/*.txt"]

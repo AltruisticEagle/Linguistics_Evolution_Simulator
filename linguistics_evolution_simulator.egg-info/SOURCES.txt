@@ -1,0 +1,15 @@
+pyproject.toml
+readme.md
+linguistics_evolution_simulator/__init__.py
+linguistics_evolution_simulator/main.py
+linguistics_evolution_simulator.egg-info/PKG-INFO
+linguistics_evolution_simulator.egg-info/SOURCES.txt
+linguistics_evolution_simulator.egg-info/dependency_links.txt
+linguistics_evolution_simulator.egg-info/entry_points.txt
+linguistics_evolution_simulator.egg-info/top_level.txt
+linguistics_evolution_simulator/data/civilisation.json
+linguistics_evolution_simulator/data/civilisation_init.json
+linguistics_evolution_simulator/data/events.json
+linguistics_evolution_simulator/data/intro.txt
+linguistics_evolution_simulator/data/outro.txt
+linguistics_evolution_simulator/data/words.json

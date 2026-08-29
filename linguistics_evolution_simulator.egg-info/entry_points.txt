@@ -1,0 +1,2 @@
+[console_scripts]
+linguistics-sim = linguistics_evolution_simulator.main:main

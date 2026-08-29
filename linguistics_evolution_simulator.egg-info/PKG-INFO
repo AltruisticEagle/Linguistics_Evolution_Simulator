@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: linguistics-evolution-simulator
+Version: 0.1.0
+Summary: A small civilisation and language evolution simulator.
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+TO-DO: THIS IS A LINGUISTICS SIMULATOR IN PROGRESS
+
+--> AI use
+- Packaging for pypi
