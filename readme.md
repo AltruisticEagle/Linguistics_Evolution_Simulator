@@ -1,6 +1,10 @@
 ## Features
 This is an attempt at representing linguistic evolution in a human civilisation! It evolves 20 words through 100-year iterations.
 
+The game loop is in main; at the beginning, a "civilisation" is generated with random parameters so as to give it unique words for resources; this might also become a game mechanic in the future. Afterwards, a quantity of words "evolve" depending on the modifiers that randomly selected events produce.
+
+With regards to the string of "plague" messages, this is to ensure that the population doesn't spiral out of control and lead to many word mutations all at once.
+
 
 ## AI use declaration
 As I said in the project description, virtually none of the code had AI input; as far as I can remember, all the code was written myself, with AI only acting occasionally as a tool that I use for better-quality brainstorming and planning.
