@@ -1,6 +1,6 @@
-Welcome to the linguistics simulator!
+Welcome to the Linguistics Simulator!
 This is a little mockup of how linguistics evolution can occur within human populations.
 But a disclaimer first.
-I am not a linguistics professor, so there probably are damning issues within the accuracy of the modellisation.
+I am not a linguistics professor, so there probably are issues in terms of evolutionary accuracy.
 I am open to any feedback if that's the case.
 But sit back, relax, and see a little civilisation evolve!

@@ -3,8 +3,9 @@ import json
 import time
 
 word_shift_modifier = 0 # number of words that are shifted per iteration
-vowels = ""
-consonants = ""
+vowels = str()
+consonants = str()
+modified_words = list()
 
 #loading some needed files
 with open("data/civilisation.json") as file:
@@ -19,20 +20,15 @@ with open("data/intro.txt", "r") as file:
 with open("data/outro.txt", "r") as file:
     outro_lines = file.readlines()
 
-
+#can we do it with a grammar function?
 
 
 class Civilisation():
     def __init__(self):
         self.population = random.randint(100, 1000) # Sets beginning population of the civilisation
-        self.explicitness = random.randint(0, 10) # Sets initial "explicitness" of the population (mechanic)
-
         self.geography, self.mobility_level = set_geography() # Sets geographical features of the generated civilisation
         self.resources = get_resources(self.geography) # Gets civilisation resources 
-
         self.words = generate_words(self.resources) # Generates word-like words + hardwired to initialise 20 words
-        #self.grammar = generate_grammar()
-        #self.sentences = None
 
         self.events = None # variable for events - list of event dicts
 
@@ -44,7 +40,6 @@ class Civilisation():
             "geography": self.geography,
             "mobility_level": self.mobility_level,
             "resources": self.resources,
-            "explicitness": self.explicitness
         }
 
         with open("data/civilisation_init.json", "w") as file:
@@ -56,28 +51,34 @@ class Civilisation():
         print(f"Geography: {self.geography}")
         print(f"Mobility: {self.mobility_level}/10")
         print(f"Resources: {', '.join(self.resources)}")
-        print(f"Cultural explicitness: {self.explicitness}/10")
 
-    def display(self):
+    def display(self, year):
         print("\n--- DASHBOARD ---")
         print(f"Population: {self.population}")
 
+        if year < 1000:
+            era = "Antiquity"
+        elif 1000 < year < 2000:
+            era = "Medieval"
+        else: 
+            era = "Modern"
+        print(f"Era: {era}")
+
         print("\nWORDS")
-        for word in self.words:
+        for i, word in enumerate(self.words):
+            if i == 0:
+                print("--> General words")
+            elif i == 11:
+                print("\n--> Resource Words")
+            elif i == 16:
+                print("\n--> Era-Specific words")
             print(f"{word}: {self.words[word]}")
-
-        print("\nGRAMMAR")
-        print(f"Word order: we are checking") #for later: {self.words["word_order"]}
-        print(f"Verb tenses: we are checking", end="")
-        #for tense in self.words["verb_tenses"]:
-            #print(tense, end=" ")
-
-        print("\nEXAMPLES")
-        #for sentence in self.sentences:
-            #print(sentence)
 
         print("\nCHANGES")
         print(f"{word_shift_modifier} words were modified in this iteration.")
+        for i, word in enumerate(modified_words):
+            print(f"{i + 1}. {word["original"]} --> {word["changed"]}")
+
         for i, event in enumerate(self.events):
             print(f"\n{i + 1}.", event["event"])
             print(f"Population change: {round(event["population_shift_modifier"] * 100)}%")
@@ -87,7 +88,7 @@ class Civilisation():
         self.events = []
 
         for event in all_events["events"]:
-            if self.population > 1500:
+            if self.population > 3000:
                 self.events.append(all_events["events"][8])
                 continue
             a = random.randint(0, 1)
@@ -102,9 +103,12 @@ class Civilisation():
     def iterate_words(self, year):
         global word_shift_modifier
         word_shift_modifier = 0
+
         for event in self.events:
             word_shift_modifier += event["word_shift_modifier"]
-        word_shift_modifier = max(0, min(word_shift_modifier, 10)) # Maximum 10 words changed per iteration
+
+        word_shift_modifier = max(0, min(word_shift_modifier, 10))  # Maximum 10 words changed per iteration
+
 
         new_era_words = None
 
@@ -113,7 +117,8 @@ class Civilisation():
                 new_era_words = word_pool["medieval"]
             else:
                 new_era_words = word_pool["modern"]
-            old_words = list(self.words.keys())[15:]
+
+            old_words = list(self.words.keys())[-5:]
 
             for word in old_words:
                 self.words.pop(word)
@@ -123,40 +128,50 @@ class Civilisation():
                 global consonants
                 self.words[word] = make_word(vowels, consonants)
 
-            self.events.append({"event": "New era, new words - Change of era! Last 5 era-specific words has changed.", 
-                                "population_shift_modifier": 0})
+            self.events.append({
+                "event": "New era, new words - Change of era! Last 5 era-specific words have changed.",
+                "population_shift_modifier": 0,
+                "word_shift_modifier": 0
+            })
+
 
         count = 0
-        a = 0 
-        for word in self.words:
-            if count == word_shift_modifier:
-                break
-            a = random.randint(0, 1)
-            if a == 1:
-                self.words[word] = mutate_word(self.words[word])
-                count += 1
+        global modified_words
+        modified_words = []
 
-    def iterate_grammar(self):
-        ...
-        #unfinished function, can potentially be used to add linguistic expressions/grammar evolution but this has to be seen
+        words_to_change = random.sample(
+            list(self.words.keys()),
+            min(word_shift_modifier, len(self.words))
+        )
 
+        for word in words_to_change:
+            change = {
+                "original": self.words[word],
+                "changed": None
+            }
+
+            self.words[word] = mutate_word(self.words[word])
+
+            change["changed"] = self.words[word]
+            modified_words.append(change)
+
+            count += 1
 #----------------------------------------------------------------------------------------
         
 
 def set_geography():
     geography = random.choice(data["geographies"])
 
-    if geography == "forest":
+    if geography == "Forest":
         mobility_level = random.randint(3, 6)
-    elif geography == "plains":
+    elif geography == "Plains":
         mobility_level = random.randint(6, 9)
-    elif geography == "desert/steppe":
+    elif geography == "Desert/Steppe":
         mobility_level = random.randint(7, 10)
-    elif geography == "mountains/valley":
+    elif geography == "Mountains/Valley":
         mobility_level = random.randint(0, 3)
-    elif geography == "wetlands (ocean, river)":
+    elif geography == "Wetlands (Ocean, River)":
         mobility_level = random.randint(4, 7)
-
     return geography, mobility_level
 
 def get_resources(geography):
@@ -203,20 +218,22 @@ def make_word(vowels, consonants):
 
     return word
 
-def generate_grammar():
-    ...
-
 def mutate_word(word):
+    vowels = "aeiou"
+    consonants = "bcdfghjklmnpqrstvwxyz"
+
     index = random.randint(0, len(word) - 1)
-
-    letters = "aeioubcdfghjklmnpqrstvwxyz"
-
     old_letter = word[index]
 
-    new_letter = random.choice(letters)
+    if old_letter in vowels:
+        possible_letters = vowels
+    else:
+        possible_letters = consonants
+
+    new_letter = random.choice(possible_letters)
 
     while new_letter == old_letter:
-        new_letter = random.choice(letters)
+        new_letter = random.choice(possible_letters)
 
     return word[:index] + new_letter + word[index + 1:]
 
@@ -226,22 +243,27 @@ def main():
     civilisation = Civilisation()
 
     running = True
-    year = 2900
+    year = 800
     while running:
-        print(f"\nYEAR {year}")
         if year == 0:
-            for line in intro_lines:
-                print(line, end="")
-                time.sleep(3)
+            #for line in intro_lines:
+                #print(line, end="")
+                #time.sleep(3)
+            print("\n")
+            print(f"\nYEAR {year}")
             civilisation.display_init()
-            
+            time.sleep(5)
+            year += 100
+
+        print(f"\nYEAR {year}")         
         civilisation.iterate_event() # Randomly gets events that are happening this iteration cycle
         civilisation.iterate_population() # Changes civilisation population (mechanic related to some events)
         civilisation.iterate_words(year) # Changes the words in the dashboard
-        civilisation.display() # Displays a dashboard
-        time.sleep(10) # 10 seconds for you to review the word changes in the dashboard
+        civilisation.display(year) # Displays a dashboard
+        time.sleep(3) # 10 seconds for you to review the word changes in the dashboard
 
         if year == 3000:
+            print("\n")
             for line in outro_lines:
                 print(line, end="")
                 time.sleep(3)

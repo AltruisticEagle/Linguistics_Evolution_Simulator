@@ -1,13 +1,12 @@
 {
-    "population": 178,
-    "geography": "desert/steppe",
-    "mobility_level": 8,
+    "population": 559,
+    "geography": "Wetlands (Ocean, River)",
+    "mobility_level": 6,
     "resources": [
-        "camels",
-        "ivory",
-        "herbs",
-        "leather",
-        "coal"
-    ],
-    "explicitness": 8
+        "Rice",
+        "Fish",
+        "Silver",
+        "Cotton",
+        "Spices"
+    ]
 }
