@@ -17,3 +17,6 @@ Install with pipx:
 
 ```bash
 pipx install linguistics-evolution-simulator
+```
+
+Then run linguistics-sim.
