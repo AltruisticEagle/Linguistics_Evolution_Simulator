@@ -1,7 +1,7 @@
 ## Features
-This is an attempt at representing linguistic evolution in a human civilisation! It evolves 20 words through 100-year iterations.
+This is an attempt at representing linguistic evolution in a human civilisation! It evolves 20 words through 100-year iterations across a 3000 year interval (that being 30 iterations in this program).
 
-The game loop is in main; at the beginning, a "civilisation" is generated with random parameters so as to give it unique words for resources; this might also become a game mechanic in the future. Afterwards, a quantity of words "evolve" depending on the modifiers that randomly selected events produce.
+The game loop is in main(); at the beginning, a "civilisation" is generated with random parameters related to geography so as to give it unique words for resources; this might also become a game mechanic in the future. Afterwards, a quantity of words "evolve" depending on the modifiers that randomly selected events produce.
 
 With regards to the string of "plague" messages, this is to ensure that the population doesn't spiral out of control and lead to many word mutations all at once.
 
