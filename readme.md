@@ -21,4 +21,6 @@ pipx install linguistics-evolution-simulator
 
 Then run ```linguistics-sim```.
 
+The same process works for pip installation as well.
+
 So far as I am aware some ship reviewers have had issues running this program on Windows, so you are advised to use Mac to run this project. 
