@@ -60,9 +60,9 @@ class Civilisation():
 
         if year < 1000:
             era = "Antiquity"
-        elif 1000 < year < 2000:
+        elif year < 2000:
             era = "Medieval"
-        else: 
+        else:
             era = "Modern"
         print(f"Era: {era}")
 
