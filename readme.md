@@ -1,5 +1,5 @@
 ## Features
-This is an attempt at representing linguistic evolution in a human civilisation! It evolves 20 words through 100-year iterations across a 3000 year interval (that being 30 iterations in this program).
+This is an attempt at representing linguistic evolution in a human civilisation! It evolves 21 words through 100-year iterations across a 3000 year interval (that being 30 iterations in this program).
 
 The game loop is in main(); at the beginning, a "civilisation" is generated with random parameters related to geography so as to give it unique words for resources; this might also become a game mechanic in the future. Afterwards, a quantity of words "evolve" depending on the modifiers that randomly selected events produce.
 
